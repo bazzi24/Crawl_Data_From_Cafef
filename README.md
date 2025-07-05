@@ -42,4 +42,4 @@ pip install requests beautifulsoup4
 python stock_scraper.ipynb
 ```
 
-3. The result will be saved in stock_data.csv.
+3. The result will be saved in vcb_data.csv.

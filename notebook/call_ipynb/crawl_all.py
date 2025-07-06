@@ -5,7 +5,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PARENT_DIR = os.path.dirname(BASE_DIR)
 ticker_dir = os.path.join(PARENT_DIR, "src_ipynb")
 
-tickers = ["mbb", "vcb", "vcg"]
+tickers = ["mbb", "vcb", "vcg", "nvl"]
 
 for file in os.listdir(ticker_dir):
     if file.endswith(".ipynb"):

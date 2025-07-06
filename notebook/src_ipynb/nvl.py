@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[8]:
+# In[3]:
 
 
 import requests
 import os
 import csv
+import openpyxl
 from datetime import datetime
 from bs4 import BeautifulSoup
-import openpyxl
 
 
-# In[9]:
+# In[4]:
 
 
-url = 'https://cafef.vn/du-lieu/hose/vcg-tong-cong-ty-co-phan-xuat-nhap-khau-va-xay-dung-viet-nam.chn'
+url = 'https://cafef.vn/du-lieu/hose/nvl-cong-ty-co-phan-tap-doan-dau-tu-dia-oc-no-va.chn'
 
 
 # In[10]:
@@ -25,7 +25,7 @@ response = requests.get(url)
 soup = BeautifulSoup(response.content, 'html.parser')
 
 
-# In[11]:
+# In[13]:
 
 
 # Name
@@ -75,12 +75,10 @@ artical15 = soup.find('div', id='foregin__room')
 print(artical15.text.strip() if artical15 else "Not found")
 
 
-# In[13]:
+# In[ ]:
 
 
 if response.status_code == 200:
-    soup = BeautifulSoup(response.content, 'html.parser')
-
     def get_text(selector):
         el = soup.select_one(selector)
         return el.text.strip() if el else ''
@@ -111,7 +109,7 @@ if response.status_code == 200:
                "Giá thấp nhất", "KLGD ròng", "GT mua", "GT bán", "Room còn lại"]
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(BASE_DIR, '..', 'file_csv', 'vcg_data.csv')
+    file_path = os.path.join(BASE_DIR, '..', 'file_csv', 'nvl_data.csv')
     file_exists = os.path.exists(file_path)
 
     with open(file_path, 'a', newline='', encoding='utf-8') as file:
@@ -119,7 +117,7 @@ if response.status_code == 200:
         if not file_exists:
             writer.writerow(headers)
         writer.writerow(data)
-    print("Scraping data completed!") 
+    print('Scraping data completed!')
 else:
     print("Scraping data failed!")
 

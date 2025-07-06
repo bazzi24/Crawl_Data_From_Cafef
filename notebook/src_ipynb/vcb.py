@@ -85,7 +85,7 @@ print(artical15.text.strip() if artical15 else "Not found")
 
 # ### Get data and push to csv
 
-# In[ ]:
+# In[14]:
 
 
 if response.status_code == 200:

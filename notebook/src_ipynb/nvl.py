@@ -75,7 +75,7 @@ artical15 = soup.find('div', id='foregin__room')
 print(artical15.text.strip() if artical15 else "Not found")
 
 
-# In[ ]:
+# In[17]:
 
 
 if response.status_code == 200:
